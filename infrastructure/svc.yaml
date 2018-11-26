@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: movetokube-web
+  namespace: movetokube
+spec:
+  selector:
+      app: movetokube
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  #type: NodePort

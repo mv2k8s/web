@@ -1,0 +1,17 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'eu.gcr.io/$PROJECT_ID/movetokube:$TAG_NAME', '.']
+  timeout: 600s
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'eu.gcr.io/$PROJECT_ID/movetokube:$TAG_NAME']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - movetokube
+  - nginx=eu.gcr.io/$PROJECT_ID/movetokube:$TAG_NAME
+  - --namespace=movetokube
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=${_REGION}'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER}'

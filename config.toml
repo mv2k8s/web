@@ -1,0 +1,15 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Move to Kubernetes"
+theme = "kube"
+description = "Professional Kubernetes migration consultancy services"
+
+staticDir = ["static"]
+[params]
+  author = "Tomas Adomavicius"
+  description = "Professional Kubernetes migration consultancy services"
+[[menu.main]]
+    name = "Contact"
+    weight = -100
+    url = "/contact/"
+

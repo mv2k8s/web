@@ -1,0 +1,65 @@
+{{ define "title"}} {{ .Site.Title}} {{end}}
+{{ define "header"}} {{ partial "header" .}} {{end}}
+{{ define "main"}}
+
+<div id="main">
+  <div id="hero">
+    <figure>
+    	<img src="k8s.svg" height="200" width="200">
+	</figure>
+    <h1>{{.Title}}</h1>
+      <p>
+          Move your current tech stack to Kubernentes and embrace modern development practices. Now easier than ever,
+          with professional consultancy <a href="/contact">services</a>
+      </p>
+  </div>
+    <div id="movetokube-features">
+        <div class="row gutters">
+            <div class="col col-4 item">
+                <figure>
+                    <i class="fas fa-4x fa-question"></i>
+                </figure>
+                <h3>Why should we care?</h3>
+                <p>Kubernetes will not only make your devs happy, but will reduce your product's time to market</p>
+            </div>
+            <div class="col col-4 item">
+                <figure>
+                    <i class="fas fa-4x fa-cloud"></i>
+                </figure>
+                <h3>Which cloud provider to use?</h3>
+                <p>
+                    Currently we work with <i class="fab fa-aws"></i> Amazon Web Services and
+                    <i class="fab fa-google"></i> Google Cloud Platform
+                </p>
+            </div>
+            <div class="col col-4 item">
+                <figure>
+                    <i class="fas fa-4x fa-server"></i>
+                </figure>
+                <h3>Have your own hardware?</h3>
+                <p>That works too! We offer Kubernetes on premise consultancy. Get the best of both worlds - lower running
+                cost and all the best Kubernetes features</p>
+            </div>
+        </div>
+        <div class="row gutters">
+            <div class="col col-6 item">
+                <figure>
+                    <i class="fas fa-4x fa-gift"></i>
+                </figure>
+                <h3>Free tech stack assessment</h3>
+                <p>Before you pay anything, we'll give you a free assessment of your current tech stack</p>
+            </div>
+            <div class="col col-6 item">
+                <figure>
+                    <i class="far fa-4x fa-check-circle"></i>
+                </figure>
+                <h3>Is this running on Kubernetes?</h3>
+                <p>It sure does! This website is running on Kubernetes in Google Cloud Platform. Source
+                code is on <a href="https://github.com/movetokube/web">Github <i class="fab fa-github"></i></a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{ end }}
+{{ define "footer"}} {{ partial "footer" .}} {{end}}

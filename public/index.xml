@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Move to Kubernetes</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Move to Kubernetes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Nov 2018 20:31:54 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Contact</title>
+      <link>http://example.org/contact/</link>
+      <pubDate>Sat, 24 Nov 2018 20:31:54 +0100</pubDate>
+      
+      <guid>http://example.org/contact/</guid>
+      <description>Just drop a short email to tomas@movetokube.com describing your situation and needs and I&#39;ll get back to you in no time. </description>
+    </item>
+    
+  </channel>
+</rss>

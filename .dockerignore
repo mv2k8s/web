@@ -1,0 +1,10 @@
+archetypes
+content
+infrastructure
+layouts
+resources
+static
+themes
+cloudbuild.yaml
+config.toml
+Dockerfile
