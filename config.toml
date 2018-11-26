@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://movetokube.com/"
 languageCode = "en-us"
 title = "Move to Kubernetes"
 theme = "kube"
