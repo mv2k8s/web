@@ -4,6 +4,8 @@ title = "Move to Kubernetes"
 theme = "kube"
 description = "Professional Kubernetes migration consultancy services"
 
+googleAnalytics = "UA-129869099-1"
+
 staticDir = ["static"]
 [params]
   author = "Tomas Adomavicius"
@@ -12,4 +14,3 @@ staticDir = ["static"]
     name = "Contact"
     weight = -100
     url = "/contact/"
-
