@@ -5,6 +5,7 @@ metadata:
   namespace: movetokube
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.global-static-ip-name: "movetokube-com"
 spec:
   tls:
   - secretName: movetokube-com-tls
