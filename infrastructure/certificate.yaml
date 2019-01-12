@@ -10,9 +10,11 @@ spec:
   commonName: movetokube.com
   dnsNames:
   - movetokube.com
+  - www.movetokube.com
   acme:
     config:
     - dns01:
         provider: prod-dns
       domains:
       - movetokube.com
+      - www.movetokube.com
