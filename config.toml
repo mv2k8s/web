@@ -10,6 +10,10 @@ staticDir = ["static"]
 [params]
   author = "Tomas Adomavicius"
   description = "Professional Kubernetes migration consultancy services"
+  og_image = "/k8s.png"
+  og_image_type = "image/png"
+  og_image_height = 500
+  og_image_width = 500
 [[menu.main]]
     name = "Contact"
     weight = -100

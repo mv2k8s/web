@@ -1,8 +1,17 @@
-
-{{ if and (.IsNode) (.Site.Params.images) }}
-  <meta property="og:image" content="{{ index .Site.Params.images 0 }}">
-{{ end }}
-
-{{ if and (.IsPage) (not .Params.images) (.Site.Params.images) }}
-  <meta property="og:image" content="{{ index .Site.Params.images 0 }}">
+{{ if .Params.og_image }}
+<meta property="og:image" content="http://movetokube.com{{ .Params.og_image | relURL }}"/>
+<meta property="og:image:secure_url" content="{{ .Params.og_image | absURL }}"/>
+{{ if .Params.og_image_height and .Params.og_image_width and .Params.og_image_type }}
+<meta property="og:image:type" content="{{ .Params.og_image_type }}">
+<meta property="og:image:width" content="{{ .Params.og_image_height }}">
+<meta property="og:image:height" content="{{ .Params.og_image_width }}">
+{{ end}}
+{{ else }}
+<meta property="og:image" content="http://movetokube.com{{ .Site.Params.og_image | relURL }}"/>
+<meta property="og:image:secure_url" content="{{ .Site.Params.og_image | absURL }}"/>
+{{ if (.Site.Params.og_image_height) and (.Site.Params.og_image_width) and (.Site.Params.og_image_type) }}
+<meta property="og:image:type" content="{{ .Site.Params.og_image_type }}">
+<meta property="og:image:width" content="{{ .Site.Params.og_image_height }}">
+<meta property="og:image:height" content="{{ .Site.Params.og_image_width }}">
+{{ end}}
 {{ end }}
