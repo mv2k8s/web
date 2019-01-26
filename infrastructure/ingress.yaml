@@ -10,5 +10,5 @@ spec:
   tls:
   - secretName: movetokube-com-tls
   backend:
-    serviceName: movetokube-web
+    serviceName: movetokube
     servicePort: 80

@@ -6,7 +6,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: tomas@adomavicius.com
+    email: tomas@movetokube.com
     privateKeySecretRef:
       name: letsencrypt
     dns01:
@@ -16,4 +16,4 @@ spec:
             serviceAccountSecretRef:
               name: clouddns-sa
               key: clouddns-sa.json
-            project: api-project-262961039094
+            project: kube-229818

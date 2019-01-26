@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: eu.gcr.io/api-project-262961039094/movetokube:0.5
+        image: eu.gcr.io/kube-229818/movetokube:0.9
         ports:
         - containerPort: 80
         resources:
