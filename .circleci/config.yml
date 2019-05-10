@@ -9,7 +9,7 @@ jobs:
           docker_layer_caching: true
       - run:
           name: build and push docker image
-          command: - |
+          command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker build -t mv2k8s/web:$CIRCLE_TAG
             docker push mv2k8s/web:$CIRCLE_TAG
