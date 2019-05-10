@@ -1,3 +1,10 @@
+only-tags: &only-tags
+  filters:
+    tags:
+      only: /.*/
+    branches:
+      ignore: /.*/
+
 # Golang CircleCI 2.0 configuration file
 version: 2
 jobs:
@@ -12,5 +19,28 @@ jobs:
           name: build and push docker image
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker build -t mv2k8s/web:$CIRCLE_TAG .
             docker build -t mv2k8s/web:latest .
+            docker push mv2k8s/web:$CIRCLE_TAG
             docker push mv2k8s/web:latest
+  deploy:
+    docker:
+      - image: bitnami/kubectl:1.14.1
+    steps:
+      - run:
+          name: update kubernetes deployment
+          command: |
+            echo $KUBECONFIG | base64 -d > ~/.kube/config
+            kubectl set image deployment movetokube nginx=mv2k8s/web:$CIRCLE_TAG
+
+
+workflows:
+  version: 2
+  # This only runs on deploy tags and not branches
+  tagged-build:
+    jobs:
+      - build: *only-tags
+      - deploy:
+          <<: *only-tags
+          requires:
+            - build
