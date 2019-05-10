@@ -1,12 +1,15 @@
+only-tags: &only-tags
+  filters:
+    tags:
+      only: /.*/
+    branches:
+      ignore: /.*/
+
 # Golang CircleCI 2.0 configuration file
 version: 2
 jobs:
   build:
-    filters:
-      tags:
-        only: /.*/
-      branches:
-        ignore: /.*/
+    <<: *only-tags
     docker:
       - image: circleci/golang:1.12
     steps:
@@ -22,11 +25,7 @@ jobs:
             docker push mv2k8s/web:$CIRCLE_TAG
             docker push mv2k8s/web:latest
   deploy:
-    filters:
-      tags:
-        only: /.*/
-      branches:
-        ignore: /.*/
+    <<: *only-tags
     docker:
       - image: bitnami/kubectl:1.14.1
     steps:
