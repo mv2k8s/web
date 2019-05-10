@@ -5,10 +5,22 @@ metadata:
   namespace: movetokube
   annotations:
     ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.global-static-ip-name: "movetokube-com"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   tls:
-  - secretName: movetokube-com-tls
-  backend:
-    serviceName: movetokube
-    servicePort: 80
+    - secretName: movetokube-com-tls
+  rules:
+    - host: movetokube.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: movetokube
+              servicePort: 80
+    - host: www.movetokube.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: movetokube
+              servicePort: 80

@@ -1,3 +1,4 @@
 .DS_Store
 .idea
 infrastructure/clouddns-service-account.yaml
+infrastructure/do-dns-secret.yaml
