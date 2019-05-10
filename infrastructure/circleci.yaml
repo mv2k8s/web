@@ -13,8 +13,12 @@ metadata:
   namespace: movetokube
 rules:
   - apiGroups: ["", "apps", "batch", "extensions"]
-    resources: ["deployments"]
-    verbs: ["update"]
+    resources:
+    - deployments
+    verbs:
+      - get
+      - patch
+      - update
 
 ---
 
