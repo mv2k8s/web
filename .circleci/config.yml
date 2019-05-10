@@ -11,5 +11,5 @@ jobs:
           name: build and push docker image
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker build -t mv2k8s/web:latest
+            docker build -t mv2k8s/web:latest .
             docker push mv2k8s/web:latest
