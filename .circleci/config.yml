@@ -25,7 +25,7 @@ jobs:
             docker push mv2k8s/web:latest
   deploy:
     docker:
-      - image: bitnami/kubectl:1.14.1
+      - image: mv2k8s/kubectl:1.14.1
     steps:
       - run:
           name: update kubernetes deployment
