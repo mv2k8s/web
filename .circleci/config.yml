@@ -31,7 +31,8 @@ jobs:
           name: update kubernetes deployment
           command: |
             mkdir -p ~/.kube
-            echo $KUBECONFIG | base64 -d > ~/.kube/config
+            touch ~/.kube/config
+            echo ${KUBECONFIG} | base64 -d >> ~/.kube/config
             kubectl set image deployment movetokube nginx=mv2k8s/web:$CIRCLE_TAG
 
 
