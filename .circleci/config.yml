@@ -9,7 +9,6 @@ only-tags: &only-tags
 version: 2
 jobs:
   build:
-    <<: *only-tags
     docker:
       - image: circleci/golang:1.12
     steps:
@@ -25,7 +24,6 @@ jobs:
             docker push mv2k8s/web:$CIRCLE_TAG
             docker push mv2k8s/web:latest
   deploy:
-    <<: *only-tags
     docker:
       - image: bitnami/kubectl:1.14.1
     steps:
@@ -34,3 +32,15 @@ jobs:
           command: |
             echo $KUBECONFIG | base64 -d > ~/.kube/config
             kubectl set image deployment movetokube nginx=mv2k8s/web:$CIRCLE_TAG
+
+
+workflows:
+  version: 2
+  # This only runs on deploy tags and not branches
+  tagged-build:
+    jobs:
+      - build: *only-tags
+      - deploy:
+          <<: *only-tags
+          requires:
+            - build
