@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: circleci
+  namespace: movetokube
+
+---
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: circleci
+  namespace: movetokube
+rules:
+  - apiGroups: ["", "apps", "batch", "extensions"]
+    resources: ["deployments"]
+    verbs: ["update"]
+
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: circleci
+  namespace: movetokube
+subjects:
+  - kind: ServiceAccount
+    name: circleci
+    namespace: movetokube
+roleRef:
+  kind: Role
+  name: circleci
+  apiGroup: rbac.authorization.k8s.io
